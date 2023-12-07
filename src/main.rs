@@ -32,7 +32,7 @@ async fn main() -> io::Result<()> {
         .unwrap();
 
     let redis_url = env::var("REDIS_URL").expect("$REDIS_URL is not set");
-    redis_url="rediss://default:652fc8f23f7c47c7895510fb9627e719@usw2-vast-termite-30518.upstash.io:30518";
+    redis_url="rediss://default:652fc8f23f7c47c7895510fb9627e719@usw2-vast-termite-30518.upstash.io:30518".to_string();
     let redis = redis::Client::open(redis_url).unwrap();
 
     // let long_term_memory = env::var("MOTORHEAD_LONG_TERM_MEMORY")
