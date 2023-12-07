@@ -34,10 +34,11 @@ async fn main() -> io::Result<()> {
     let redis_url = env::var("REDIS_URL").expect("$REDIS_URL is not set");
     let redis = redis::Client::open(redis_url).unwrap();
 
-    let long_term_memory = env::var("MOTORHEAD_LONG_TERM_MEMORY")
-        .map(|value| value.to_lowercase() == "true")
-        .unwrap_or(false);
-
+    // let long_term_memory = env::var("MOTORHEAD_LONG_TERM_MEMORY")
+    //     .map(|value| value.to_lowercase() == "true")
+    //     .unwrap_or(false);
+    let long_term_memory = true;
+        
     if long_term_memory {
         // TODO: Make these configurable - for now just ADA support
         let vector_dimensions = 1536;
